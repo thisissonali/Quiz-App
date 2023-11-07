@@ -28,7 +28,7 @@ function Container({getData}) {
     {
       id: 2,
       label: "Naam btaie ?",
-      correctOptionId: 4,
+      correctOptionId: 6,
       selectedOptionId: null,
       options: [
         {
