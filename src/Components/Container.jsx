@@ -101,13 +101,12 @@ function Container({getData}) {
   return (
     <div className="container">
       <div className="mcqContainer">
-        
         <span className="qsn-numberheading">
           Qsn. {` ${qsnNo + 1} / ${questions.length} `}
         </span>
-       
+
         <span className="span-qsns">{questions[qsnNo].label}</span>
-       
+
         <div className="option-container">
           {questions[qsnNo].options.map((option) => (
             <button
@@ -117,7 +116,6 @@ function Container({getData}) {
                   : null
               }`}
               onClick={() => clickHandler(option)}
-              
               key={option.id}
             >
               {option.label}
@@ -135,6 +133,7 @@ function Container({getData}) {
         </button>
         <button
           className="btn-prev-next"
+          disabled={qsnNo == 3 }
           onClick={() => setQsnNo((prevQsnNo) => prevQsnNo + 1)}
         >
           &gt;
@@ -142,7 +141,9 @@ function Container({getData}) {
         {qsnNo == questions.length - 1 && (
           <button
             className="submit-btn"
-            onClick={() => {`${navigate("total-score")} ${getData(questions)}`}}
+            onClick={() => {
+              `${navigate("total-score")} ${getData(questions)}`;
+            }}
           >
             Submit
           </button>
