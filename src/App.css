@@ -150,12 +150,15 @@
       margin-top: 5px;
       padding-bottom: 5px;
     }
+    .span-qsns{
+      font-size: 20px;
+    }
     .option-container {
           width: 150px;
           /* position: relative; */
           /* margin-top: -500px;  */
-          margin-top: -100px;
-          margin-left: 50%;
+          margin-top: -115px;
+          margin-left: 51%;
     }
         .btn-prev-next {
           margin-right: 5px;
