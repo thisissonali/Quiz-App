@@ -2,7 +2,7 @@ import React , { useState , useEffect} from 'react'
 import '../App.css'
 import { useNavigate } from "react-router-dom";
 
-function Container() {
+function Container({getData}) {
    const navigate = useNavigate();
    const [questions, setQuestions] = useState([
     {
@@ -28,7 +28,7 @@ function Container() {
     {
       id: 2,
       label: "Naam btaie ?",
-      correctOptionId: 3,
+      correctOptionId: 4,
       selectedOptionId: null,
       options: [
         {
@@ -48,7 +48,7 @@ function Container() {
     {
       id: 3,
       label: "Kya chip sch mai lgi hai?",
-      correctOptionId: 2,
+      correctOptionId: 8,
       selectedOptionId: null,
       options: [
         {
@@ -68,7 +68,7 @@ function Container() {
     {
       id: 4,
       label: "Mai or batman kbhi same room mai kyu ni rhte",
-      correctOptionId: 2,
+      correctOptionId: 12,
       selectedOptionId: null,
       options: [
         {
@@ -89,7 +89,7 @@ function Container() {
   const[score, setScore] = useState(0);  
       
   const clickHandler = (option) => {
-    setQuestions(questions.map((question, index) => {
+      setQuestions(questions.map((question, index) => {
       if (qsnNo != index) return question;
      
       return {
@@ -97,7 +97,6 @@ function Container() {
       }
     }))
   };
-  console.log(score);
   const [qsnNo, setQsnNo] = useState(0);
   return (
     <div className="container">
@@ -143,7 +142,7 @@ function Container() {
         {qsnNo == questions.length - 1 && (
           <button
             className="submit-btn"
-            onClick={() => navigate("total-score")}
+            onClick={() => {`${navigate("total-score")} ${getData(questions)}`}}
           >
             Submit
           </button>
